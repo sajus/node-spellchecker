@@ -1,5 +1,8 @@
 # SpellChecker Node Module
 
+[![Build status](https://ci.appveyor.com/api/projects/status/kmilw63dodpu2xvr?svg=true)](https://ci.appveyor.com/project/ccnokes/node-spellchecker)
+[![Build Status](https://travis-ci.org/ccnokes/node-spellchecker.svg?branch=master)](https://travis-ci.org/ccnokes/node-spellchecker)
+
 Native bindings to [NSSpellChecker](https://developer.apple.com/library/mac/#documentation/cocoa/reference/ApplicationKit/Classes/NSSpellChecker_Class/Reference/Reference.html) or the [Windows 8 Spell Check API](https://msdn.microsoft.com/en-us/library/windows/desktop/hh869853(v=vs.85).aspx), depending on your platform.
 
 ## Installing
