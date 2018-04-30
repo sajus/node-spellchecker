@@ -1,17 +1,17 @@
-# SpellChecker Node Module [![Build Status](https://travis-ci.org/atom/node-spellchecker.svg?branch=master)](https://travis-ci.org/atom/node-spellchecker) [![Build status](https://ci.appveyor.com/api/projects/status/up294b734wagwlaw/branch/master?svg=true)](https://ci.appveyor.com/project/kevinsawicki/node-spellchecker/branch/master)
+# SpellChecker Node Module
 
-Native bindings to [NSSpellChecker](https://developer.apple.com/library/mac/#documentation/cocoa/reference/ApplicationKit/Classes/NSSpellChecker_Class/Reference/Reference.html), [Hunspell](http://hunspell.sourceforge.net/), or the [Windows 8 Spell Check API](https://msdn.microsoft.com/en-us/library/windows/desktop/hh869853(v=vs.85).aspx), depending on your platform. Windows 7 and below as well as Linux will rely on Hunspell.
+Native bindings to [NSSpellChecker](https://developer.apple.com/library/mac/#documentation/cocoa/reference/ApplicationKit/Classes/NSSpellChecker_Class/Reference/Reference.html) or the [Windows 8 Spell Check API](https://msdn.microsoft.com/en-us/library/windows/desktop/hh869853(v=vs.85).aspx), depending on your platform.
 
 ## Installing
 
 ```bash
-npm install spellchecker
+npm install @ccnokes/spellchecker
 ```
 
 ## Using
 
 ```coffeescript
-SpellChecker = require 'spellchecker'
+import { SpellChecker } from '@ccnokes/spellchecker'
 ```
 
 ### SpellChecker.isMisspelled(word)
@@ -54,3 +54,9 @@ When using Hunspell, this will not modify the .dic file; new words must be added
 `word` - String word to add.
 
 Returns nothing.
+
+### SpellChecker.isSupported()
+
+Tells if your platform is supported. If it's not, you can use the API as normal, just nothing will actually work.
+
+Returns boolean.
