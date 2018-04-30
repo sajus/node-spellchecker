@@ -13,7 +13,7 @@ npm install @ccnokes/spellchecker
 
 ## Using
 
-```coffeescript
+```javascript
 import { SpellChecker } from '@ccnokes/spellchecker'
 ```
 
