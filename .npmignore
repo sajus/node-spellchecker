@@ -1,5 +1,6 @@
 build/
 spec/
+sandbox/
 .npmignore
 .gitignore
 .DS_Store

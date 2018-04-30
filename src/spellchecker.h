@@ -56,6 +56,8 @@ public:
   // time the spellchecker is created. Use a custom dictionary file.
   virtual void Remove(const std::string& word) = 0;
 
+  virtual bool IsSupported() = 0;
+
   virtual std::unique_ptr<SpellcheckerThreadView> CreateThreadView()
   {
     return std::unique_ptr<SpellcheckerThreadView>(new SpellcheckerThreadView(this));

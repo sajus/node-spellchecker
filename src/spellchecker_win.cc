@@ -12,7 +12,7 @@
 
 #include "spellchecker.h"
 #include "spellchecker_win.h"
-#include "spellchecker_hunspell.h"
+#include "spellchecker_stub.h"
 
 // NB: No idea why I have to define this myself, you don't have to in a
 // standard console app.
@@ -402,13 +402,13 @@ uv_mutex_t &WindowsSpellchecker::GetGlobalTableMutex()
 }
 
 SpellcheckerImplementation* SpellcheckerFactory::CreateSpellchecker() {
-  WindowsSpellchecker* ret = new WindowsSpellchecker();
+  WindowsSpellchecker *ret = new WindowsSpellchecker();
   if (ret->IsSupported() && getenv("SPELLCHECKER_PREFER_HUNSPELL") == NULL) {
     return ret;
   }
 
   delete ret;
-  return new HunspellSpellchecker();
+  return new SpellcheckerStub();
 }
 
 }  // namespace spellchecker

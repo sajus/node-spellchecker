@@ -58,10 +58,11 @@ class Spellchecker : public Nan::ObjectWrap {
       return Nan::ThrowError("Bad argument");
     }
 
-    Handle<String> string = Handle<String>::Cast(info[0]);
-    if (!string->IsString()) {
+    if (!info[0]->IsString()) {
       return Nan::ThrowError("Bad argument");
     }
+
+    Handle<String> string = Handle<String>::Cast(info[0]);
 
     Local<Array> result = Nan::New<Array>();
     info.GetReturnValue().Set(result);
@@ -94,10 +95,11 @@ class Spellchecker : public Nan::ObjectWrap {
       return Nan::ThrowError("Bad argument");
     }
 
-    Handle<String> string = Handle<String>::Cast(info[0]);
-    if (!string->IsString()) {
+    if (!info[0]->IsString()) {
       return Nan::ThrowError("Bad argument");
     }
+
+    Handle<String> string = Handle<String>::Cast(info[0]);
 
     Nan::Callback *callback = new Nan::Callback(info[1].As<Function>());
 
@@ -159,6 +161,7 @@ class Spellchecker : public Nan::ObjectWrap {
     info.GetReturnValue().Set(result);
   }
 
+  // TODO add async version of this method?
   static NAN_METHOD(GetCorrectionsForMisspelling) {
     Nan::HandleScope scope;
     if (info.Length() < 1) {
@@ -179,6 +182,12 @@ class Spellchecker : public Nan::ObjectWrap {
       result->Set(i, val.ToLocalChecked());
     }
 
+    info.GetReturnValue().Set(result);
+  }
+
+  static NAN_METHOD(IsSupported) {
+    Spellchecker *that = Nan::ObjectWrap::Unwrap<Spellchecker>(info.Holder());
+    const bool result = that->impl->IsSupported();
     info.GetReturnValue().Set(result);
   }
 
@@ -206,6 +215,7 @@ class Spellchecker : public Nan::ObjectWrap {
     Nan::SetPrototypeMethod(tpl, "checkSpellingAsync", Spellchecker::CheckSpellingAsync);
     Nan::SetPrototypeMethod(tpl, "add", Spellchecker::Add);
     Nan::SetPrototypeMethod(tpl, "remove", Spellchecker::Remove);
+    Nan::SetPrototypeMethod(tpl, "isSupported", Spellchecker::IsSupported);
 
     exports->Set(Nan::New("Spellchecker").ToLocalChecked(), tpl->GetFunction());
   }

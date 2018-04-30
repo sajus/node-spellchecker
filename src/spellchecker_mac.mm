@@ -1,5 +1,5 @@
 #include "spellchecker_mac.h"
-#include "spellchecker_hunspell.h"
+#include "spellchecker_stub.h"
 
 #import <Cocoa/Cocoa.h>
 #import <dispatch/dispatch.h>
@@ -154,11 +154,16 @@ void MacSpellchecker::UpdateGlobalSpellchecker() {
   }
 }
 
-SpellcheckerImplementation* SpellcheckerFactory::CreateSpellchecker() {
-  if (getenv("SPELLCHECKER_PREFER_HUNSPELL")) {
-    return new HunspellSpellchecker();
-  }
+bool MacSpellchecker::IsSupported() {
+  return true;
+}
 
+SpellcheckerImplementation* SpellcheckerFactory::CreateSpellchecker() {
+  #ifdef USE_HUNSPELL
+   if (getenv("SPELLCHECKER_PREFER_HUNSPELL")) {
+     return new StubSpellchecker();
+  }
+  #endif
   return new MacSpellchecker();
 }
 

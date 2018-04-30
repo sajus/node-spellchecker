@@ -20,7 +20,8 @@ public:
   std::vector<MisspelledRange> CheckSpelling(const uint16_t *text, size_t length);
   void Add(const std::string& word);
   void Remove(const std::string& word);
-  
+  bool IsSupported();
+
 private:
   NSSpellChecker* spellChecker;
   NSString* spellCheckerLanguage;

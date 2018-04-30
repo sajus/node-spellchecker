@@ -1,10 +1,10 @@
 #include "spellchecker.h"
-#include "spellchecker_hunspell.h"
+#include "spellchecker_stub.h"
 
 namespace spellchecker {
 
 SpellcheckerImplementation* SpellcheckerFactory::CreateSpellchecker() {
-  return new HunspellSpellchecker();
+  return new SpellcheckerStub();
 }
 
 }  // namespace spellchecker
