@@ -18,7 +18,7 @@ describe("SpellChecker", function() {
 
     it("returns true/false based on platform", function() {
       // linux and windows 7 aren't supported, but only linux is easy to check for
-      const expectation = process.platform === 'linux' ? false : true;
+      const expectation = process.platform === 'linux' || process.env.SPELLCHECKER_PREFER_HUNSPELL ? false : true;
       expect(this.fixture.isSupported()).toEqual(expectation);
     });
   });
