@@ -2,7 +2,7 @@
   "main": "./lib/spellchecker.js",
   "name": "@ccnokes/spellchecker",
   "description": "Bindings to native spellchecker",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "compile-for-node": "node-gyp rebuild -d",
     "compile-for-electron": "node-gyp rebuild -d --target=1.8.6 --arch=x64 --dist-url=https://atom.io/download/electron",
     "electron-sandbox": "electron sandbox/index.js",
-    "prebuild": "prebuild -t 1.8.6 -r electron --strip --verbose"
+    "prebuild": "prebuild --all --strip --verbose"
   },
   "devDependencies": {
     "electron": "^1.8.6",
