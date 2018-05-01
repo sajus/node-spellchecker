@@ -8,6 +8,7 @@ os:
   - osx
 
 node_js:
+  - 10
   - 9
   - 8
 
@@ -22,6 +23,8 @@ install:
 script: npm test
 
 sudo: false
+
+language: node_js
 
 git:
   depth: 10
