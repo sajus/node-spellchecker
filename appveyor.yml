@@ -1,5 +1,10 @@
 environment:
   nodejs_version: "8"
+  nodejs_version: "9"
+
+platform:
+  - x86
+  - x64
 
   matrix:
     - {}
