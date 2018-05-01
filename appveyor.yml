@@ -5,9 +5,9 @@ platform:
   - x86
   - x64
 
-  matrix:
-    - {}
-    - {SPELLCHECKER_PREFER_HUNSPELL: true}
+matrix:
+  - {}
+  - {SPELLCHECKER_PREFER_HUNSPELL: true}
 
 install:
   - ps: Install-Product node $env:nodejs_version

@@ -12,29 +12,12 @@ node_js:
   - 9
   - 8
 
-install:
-  - rm -rf ~/.nvm
-  - git clone https://github.com/creationix/nvm.git ~/.nvm
-  - source ~/.nvm/nvm.sh
-  - nvm install $NODE_VERSION
-  - node --version
-  - npm install
-
 script: npm test
 
 sudo: false
 
 language: node_js
 
-git:
-  depth: 10
-
-branches:
-  only:
-    - master
-
 env:
   global:
     - CC=clang CXX=clang++ npm_config_clang=1
-  matrix:
-    - NODE_VERSION=node
