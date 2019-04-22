@@ -1,3 +1,6 @@
+### !!! Important note !!! 
+This is a fork of [node-spellchecker](https://github.com/atom/node-spellchecker), you probably want that one instead because it supports Windows 7 and Linux (via Hunspell). This one removes Hunspell due to issues my org has with it's license.
+
 # SpellChecker Node Module
 
 [![Build status](https://ci.appveyor.com/api/projects/status/kmilw63dodpu2xvr?svg=true)](https://ci.appveyor.com/project/ccnokes/node-spellchecker)
